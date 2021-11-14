@@ -3,15 +3,21 @@
 @section('title', '- edit: ' . $post->title_en)
 
 @section('content')
-    <div class="container">
-        <div class="section">
-            <div class="columns is-multiline is-centered">
-                <div class="column is-6">
-                    <h3 class="title is-2">Create New post</h3>
-                    <form action="{{ route('posts.update', $post) }}" method="POST">
-                        @method('PUT')
-                        @csrf
-                        <div class="columns is-centered is-multiline">
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline is-vcentered">
+                <div class="column is-12 ">
+                    <h2 class="title is-2">Edit Post</h2>
+                </div>
+            </div>
+
+            <form action="{{ route('posts.update', $post) }}" method="POST">
+                @method('PUT')
+                @csrf
+
+                <div class="columns is-centered">
+                    <div class="column is-6">
+                        <div class="columns is-multiline is-vcentered">
                             <div class="column is-12">
                                 <div class="field">
                                     <label class="label">Title</label>
@@ -37,12 +43,14 @@
                                     @enderror
                                 </div>
                             </div>
+                            <br>
+                            <div class="column is-12">
+                                <input type="submit" class="button is-primary is-outlined is-fullwidth" value="Edit Post">
+                            </div>
                         </div>
-                        <div class="column is-12"><input type="submit" class="button is-primary is-outlined is-fullwidth"
-                                value="Edit Post"></div>
+                    </div>
                 </div>
-                </form>
-            </div>
+            </form>
         </div>
-    </div>
+    </section>
 @endsection
